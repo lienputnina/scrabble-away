@@ -32,13 +32,13 @@ yarn start
 
 ## Linting and formatting
 
-To lint your code from CLI, run:
+To lint your code, run:
 
 ```shell
 yarn lint
 ```
 
-To format your code from CLI, run:
+To format your code, run:
 
 ```shell
 yarn format
