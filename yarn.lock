@@ -1468,6 +1468,28 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
+"@kputnins/scrabble-ai-alphabet@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@kputnins/scrabble-ai-alphabet/-/scrabble-ai-alphabet-0.0.2.tgz#e8b776aaf64c83fb55cfcfaa1659b73b0fc49cdc"
+  integrity sha512-ucrmEX6/0Tk0RfXa2ICh94NErrtYCAm4KRwPOXU7KeMCnrNSFNGWjT9A8kYE9S+m2GIhNurRXo32/Xv3lm50oA==
+  dependencies:
+    typescript "^4.8.3"
+
+"@kputnins/scrabble-ai-core@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@kputnins/scrabble-ai-core/-/scrabble-ai-core-0.4.0.tgz#991d74d6c96ab76e95a3fc179efe3ca7d3de0e10"
+  integrity sha512-n4NtoYHN51rX1XC8WoYJM3yyD1sKCfcXwawPGW0ZXk5vNlWZqXgaWljJbIcYSMciACn//Gt1nHxfgAW8w7aJ1Q==
+  dependencies:
+    "@kputnins/scrabble-ai-game" "^0.10.0"
+
+"@kputnins/scrabble-ai-game@^0.10.0":
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/@kputnins/scrabble-ai-game/-/scrabble-ai-game-0.10.0.tgz#1ec54cf40af144ec5437a4b31a49fa8b7bc64e22"
+  integrity sha512-CfFKeJk5l8hI5zPFFeWkGCeBnhiOjP58XYjpqzXRp+uHyDgzBncB5TQ7HGa/pAAacYM84x3SJRfvMF0LjybbQg==
+  dependencies:
+    "@kputnins/scrabble-ai-alphabet" "^0.0.2"
+    nanoid "3"
+
 "@liene-putnina/eslint-config-lintmyride@^1.0.8":
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/@liene-putnina/eslint-config-lintmyride/-/eslint-config-lintmyride-1.0.8.tgz#9e9a3db0d653757c12346b5e52eaab38e4843132"
@@ -8567,7 +8589,7 @@ nan@^2.12.1:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.16.0.tgz#664f43e45460fb98faf00edca0bb0d7b8dce7916"
   integrity sha512-UdAqHyFngu7TfQKsCBgAA6pWDkT8MAO7d0jyOecVhN5354xbLqdn8mV9Tat9gepAupm0bt2DbeaSC8vS52MuFA==
 
-nanoid@^3.3.1, nanoid@^3.3.4:
+nanoid@3, nanoid@^3.3.1, nanoid@^3.3.4:
   version "3.3.4"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.4.tgz#730b67e3cd09e2deacf03c027c81c9d9dbc5e8ab"
   integrity sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==
@@ -11177,6 +11199,11 @@ typescript@4.8.2:
   version "4.8.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.8.2.tgz#e3b33d5ccfb5914e4eeab6699cf208adee3fd790"
   integrity sha512-C0I1UsrrDHo2fYI5oaCGbSejwX4ch+9Y5jTQELvovfmFkK3HHSZJB8MSJcWLmCUBzQBchCrZ9rMRV6GuNrvGtw==
+
+typescript@^4.8.3:
+  version "4.8.4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.8.4.tgz#c464abca159669597be5f96b8943500b238e60e6"
+  integrity sha512-QCh+85mCy+h0IGff8r5XWzOVSbBO+KfeYrMQh7NJ58QujwcE22u+NUSmUxqF+un70P9GXKxa2HCNiTTMJknyjQ==
 
 uglify-js@^3.1.4:
   version "3.17.0"

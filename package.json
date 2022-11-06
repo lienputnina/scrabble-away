@@ -13,6 +13,9 @@
     "test-coverage": "jest --coverage"
   },
   "dependencies": {
+    "@kputnins/scrabble-ai-alphabet": "^0.0.2",
+    "@kputnins/scrabble-ai-core": "^0.4.0",
+    "@kputnins/scrabble-ai-game": "^0.10.0",
     "@liene-putnina/react-components-for-you": "^0.0.2",
     "gray-matter": "^4.0.3",
     "identity-obj-proxy": "^3.0.0",
