@@ -1,9 +1,9 @@
-import type { FC, ReactNode } from "react";
+import type { FC, ReactNode } from 'react';
 
-import Link from "next/link";
-import Image from "next/image";
+import Link from 'next/link';
+import Image from 'next/image';
 
-import { Header, Title } from "@liene-putnina/react-components-for-you";
+import { Header, Title } from '@liene-putnina/react-components-for-you';
 
 export interface WithHeaderProps {
   children: ReactNode;
@@ -29,7 +29,7 @@ export const WithHeader: FC<WithHeaderProps> = ({
           </Link>
         }
       >
-        <Title style={{ fontSize: "40px", lineHeight: "40px", margin: "0" }}>
+        <Title style={{ fontSize: '35px', lineHeight: '35px', margin: '0' }}>
           {headerTitle}
         </Title>
       </Header>
