@@ -1,12 +1,13 @@
-@use "@liene-putnina/react-components-for-you/dist/styles/typography.scss";
-@use "@liene-putnina/react-components-for-you/dist/styles/paddings.scss";
-@use "@liene-putnina/react-components-for-you/dist/styles/variables.module.scss";
-@use "@liene-putnina/react-components-for-you/dist/styles/colors.module.scss";
+@use '@liene-putnina/react-components-for-you/dist/styles/typography.scss';
+@use '@liene-putnina/react-components-for-you/dist/styles/paddings.scss';
+@use '@liene-putnina/react-components-for-you/dist/styles/variables.module.scss';
+@use '@liene-putnina/react-components-for-you/dist/styles/colors.module.scss';
 
-@import "@liene-putnina/react-components-for-you/dist/index.css";
+@import '@liene-putnina/react-components-for-you/dist/index.css';
 
 body > * {
   @include typography.font-family;
+  // background-color: #fafaf9;
 }
 
 main#main {
