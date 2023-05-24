@@ -1,0 +1,16 @@
+@use "@liene-putnina/react-components-for-you/dist/styles/typography.scss";
+@use "@liene-putnina/react-components-for-you/dist/styles/paddings.scss";
+@use "@liene-putnina/react-components-for-you/dist/styles/variables.module.scss";
+@use "@liene-putnina/react-components-for-you/dist/styles/colors.module.scss";
+
+@import "@liene-putnina/react-components-for-you/dist/index.css";
+
+body > * {
+  @include typography.font-family;
+}
+
+main#main {
+  width: 100%;
+  height: calc(100vh - #{variables.$header-height});
+  padding: paddings.$lg;
+}

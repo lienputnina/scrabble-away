@@ -3,9 +3,10 @@ import { type AppType } from "next/app";
 import { api } from "~/utils/api";
 
 import "~/styles/globals.css";
+import "~/styles/customStyles.scss";
 
-const MyApp: AppType = ({ Component, pageProps }) => {
+const ScrabbleAway: AppType = ({ Component, pageProps }) => {
   return <Component {...pageProps} />;
 };
 
-export default api.withTRPC(MyApp);
+export default api.withTRPC(ScrabbleAway);
