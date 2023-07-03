@@ -179,10 +179,10 @@
     "@kputnins/scrabble-ai-alphabet" "workspace:*"
     nanoid "3"
 
-"@liene-putnina/react-components-for-you@^1.3.1":
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/@liene-putnina/react-components-for-you/-/react-components-for-you-1.3.1.tgz#a720db68289768377b6cbe588428592d306cf471"
-  integrity sha512-YhwupgBt10Ljy76u24Z9PLN7vxtHzw7dToty9QThgKmf9rIm59kBmO/Mzj+LG9m/QySoDTHL1L6jJBvyNgtrCw==
+"@liene-putnina/react-components-for-you@^1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@liene-putnina/react-components-for-you/-/react-components-for-you-1.6.0.tgz#4d42cb961f4498bcae755410693634d48ebff5ae"
+  integrity sha512-3yOMJAVP2SG96cub4fka9SpyHei8+K8ALAbGX8Iw4XFcLbgTPiyXSZnqBRrUYO1FVehZRCsaBjgydxRHeEXFyg==
   dependencies:
     classnames "^2.3.1"
 

@@ -2,13 +2,7 @@
 
 ## Overview
 
-[Scrabble](https://en.wikipedia.org/wiki/Scrabble) in Latvian.
-
-This is a **WIP** - currently there is just a [NextJS](https://nextjs.org/learn/basics/create-nextjs-app) starter blog app, built with **TypeScript**.
-
-The app uses **dynamic routing** - you can see it in the url by clicking on one of the **Blog** article links on the landing page.
-
-All the CLI commands are provided for **yarn**, but you can use **npm** as well.
+Online [Scrabble](https://en.wikipedia.org/wiki/Scrabble) in Latvian.
 
 ## Usage
 
