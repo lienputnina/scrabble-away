@@ -1,11 +1,17 @@
-import { type AppType } from "next/app";
+import { type AppType } from 'next/app';
 
-import { api } from "~/utils/api";
+import { api } from '~/utils/api';
+import { ClerkProvider } from '@clerk/nextjs';
 
-import "~/styles/globals.css";
+import '~/styles/globals.css';
+import '~/styles/customStyles.scss';
 
-const MyApp: AppType = ({ Component, pageProps }) => {
-  return <Component {...pageProps} />;
+const ScrabbleAway: AppType = ({ Component, pageProps }) => {
+  return (
+    <ClerkProvider {...pageProps}>
+      <Component {...pageProps} />;
+    </ClerkProvider>
+  );
 };
 
-export default api.withTRPC(MyApp);
+export default api.withTRPC(ScrabbleAway);
