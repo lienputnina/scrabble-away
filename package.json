@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "yarn build && next start",
+    "postinstall": "prisma generate",
     "lint": "next lint",
     "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "test": "jest",
@@ -31,6 +32,7 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@liene-putnina/eslint-config-lintmyride": "^1.3.0",
     "@types/eslint": "^8.21.3",
     "@types/node": "^18.15.5",
     "@types/prettier": "^2.7.2",

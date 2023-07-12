@@ -21,7 +21,7 @@ const Home: NextPage = () => {
         <title>ScrabbleAway</title>
       </Head>
       <WithHeader headerTitle="Scrabble Away">
-        <div className="p-6">
+        <main>
           <div className="flex flex-col pb-3">
             <Title
               level={TitleLevel.TWO}
@@ -57,13 +57,13 @@ const Home: NextPage = () => {
             <Text alignment={TextAlignment.CENTER}>
               To start a new game press the &quot;New Game&quot; button below
             </Text>
-            <Link href="/entryForm" className="self-center">
+            <Link href="/gameDetailsPage" className="self-center">
               <Button onClick={() => console.log('Start new game')}>
                 New Game
               </Button>
             </Link>
           </div>
-        </div>
+        </main>
       </WithHeader>
     </>
   );
