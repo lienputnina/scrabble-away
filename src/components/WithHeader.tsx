@@ -1,10 +1,10 @@
-import type { FC, ReactNode } from 'react';
+import type { FC, ReactNode } from "react";
 
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from "next/link";
+import Image from "next/image";
 
-import { Header, Title } from '@liene-putnina/react-components-for-you';
-import { SignInButton, SignOutButton, useUser } from '@clerk/nextjs';
+import { Header, Title } from "@liene-putnina/react-components-for-you";
+import { SignInButton, UserButton, useUser } from "@clerk/nextjs";
 
 export interface WithHeaderProps {
   children: ReactNode;
@@ -32,7 +32,7 @@ export const WithHeader: FC<WithHeaderProps> = ({
           </Link>
         }
       >
-        <Title style={{ fontSize: '35px', lineHeight: '35px', margin: '0' }}>
+        <Title style={{ fontSize: "35px", lineHeight: "35px", margin: "0" }}>
           {headerTitle}
         </Title>
         {!user.isSignedIn && (
@@ -41,8 +41,14 @@ export const WithHeader: FC<WithHeaderProps> = ({
           </div>
         )}
         {!!user.isSignedIn && (
-          <div className="absolute right-6 flex rounded-lg border-2 border-rose-900 px-2 py-1 text-rose-900 hover:border-rose-800 hover:bg-red-50 hover:text-rose-800">
-            <SignOutButton />
+          <div className="absolute right-4">
+            <UserButton
+              appearance={{
+                elements: {
+                  userButtonAvatarBox: "w-10 h-10 ",
+                },
+              }}
+            />
           </div>
         )}
       </Header>

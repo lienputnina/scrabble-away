@@ -1,13 +1,8 @@
-import { type NextPage } from 'next';
-import Head from 'next/head';
+import { type NextPage } from "next";
+import Head from "next/head";
 
-import { WithHeader } from '~/components/WithHeader';
-import {
-  Title,
-  TitleAlignment,
-  TitleLevel,
-} from '@liene-putnina/react-components-for-you';
-import { GameDetailsForm } from '~/components/GameDetailsForm';
+import { WithHeader } from "~/components/WithHeader";
+import { GameDetailsForm } from "~/components/GameDetailsForm";
 
 const GameDetailsPage: NextPage = () => {
   return (
@@ -17,13 +12,6 @@ const GameDetailsPage: NextPage = () => {
       </Head>
       <WithHeader headerTitle="Game details form">
         <main>
-          <Title
-            level={TitleLevel.TWO}
-            alignment={TitleAlignment.CENTER}
-            style={{ fontSize: '36px', lineHeight: '36px' }}
-          >
-            Fill out the game details
-          </Title>
           <GameDetailsForm />
         </main>
       </WithHeader>
