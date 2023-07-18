@@ -57,7 +57,7 @@ const Home: NextPage = () => {
             <Text alignment={TextAlignment.CENTER}>
               To start a new game press the &quot;New Game&quot; button below
             </Text>
-            <Link href="/entryForm" className="self-center">
+            <Link href="/gameDetailsPage" className="self-center">
               <Button>New Game</Button>
             </Link>
           </div>

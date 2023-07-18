@@ -1,15 +1,15 @@
-import { type AppType } from 'next/app';
+import { type AppType } from "next/app";
 
-import { api } from '~/utils/api';
-import { ClerkProvider } from '@clerk/nextjs';
+import { api } from "~/utils/api";
+import { ClerkProvider } from "@clerk/nextjs";
 
-import '~/styles/globals.css';
-import '~/styles/customStyles.scss';
+import "~/styles/globals.css";
+import "~/styles/customStyles.scss";
 
 const ScrabbleAway: AppType = ({ Component, pageProps }) => {
   return (
     <ClerkProvider {...pageProps}>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </ClerkProvider>
   );
 };
