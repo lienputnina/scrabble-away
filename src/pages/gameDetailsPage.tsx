@@ -11,9 +11,9 @@ const GameDetailsPage: NextPage = () => {
         <title>Game details</title>
       </Head>
       <WithHeader headerTitle="Game details form">
-        <main>
+        <div>
           <GameDetailsForm />
-        </main>
+        </div>
       </WithHeader>
     </>
   );

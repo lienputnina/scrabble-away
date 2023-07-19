@@ -18,4 +18,10 @@ main#main {
   flex-direction: column;
   align-items: center;
   @include mixins.focus-visible-outline();
+  a {
+    color: colors.$accent;
+  }
+  a:hover {
+    color: colors.$accent--hover;
+  }
 }

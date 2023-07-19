@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Link from "next/link";
+import Head from "next/head";
 
 import {
   Button,
@@ -9,10 +10,8 @@ import {
   TitleLevel,
   TitleAlignment,
 } from "@liene-putnina/react-components-for-you";
-import { WithHeader } from "~/components/WithHeader";
 
-import "@liene-putnina/react-components-for-you/dist/index.css";
-import Head from "next/head";
+import { WithHeader } from "~/components/WithHeader";
 
 const Home: NextPage = () => {
   return (
@@ -37,13 +36,7 @@ const Home: NextPage = () => {
               more often then they do in the English version and the points
               awarded for the usage of each letter will differ as well. The
               validity of each word is checked with the help of Latvian online
-              dictionary{" "}
-              <a
-                href="https://tezaurs.lv/"
-                className="text-rose-950 hover:text-rose-900"
-              >
-                Tēzaurs.
-              </a>
+              dictionary <a href="https://tezaurs.lv/">Tēzaurs.</a>
             </Text>
           </div>
           <div className="flex flex-col pb-3">
