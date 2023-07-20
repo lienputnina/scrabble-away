@@ -1,8 +1,4 @@
-/*
-7. Add formValues sending destination = browser session?
-*/
-
-import { useState, type FC } from "react";
+import { useState, type FC, useEffect } from "react";
 import Link from "next/link";
 
 import {
@@ -18,7 +14,7 @@ import colors from "@liene-putnina/react-components-for-you/dist/styles/scss/col
 
 import { z } from "zod";
 
-interface GameDetails {
+export interface GameDetails {
   gameDuration?: number;
   numberOfOpponents?: number;
   turnTimeLimit?: number;
@@ -57,9 +53,9 @@ const gameDetailsFormSchema = z.object({
 
 export const GameDetailsForm: FC<GameDetails> = () => {
   const DropdownOptions: Option[] = [
-    { id: "id-1", value: "Easy" },
-    { id: "id-2", value: "Medium" },
-    { id: "id-3", value: "Hard" },
+    { id: "level-easy", value: "Easy" },
+    { id: "level-medium", value: "Medium" },
+    { id: "level-hard", value: "Hard" },
   ];
 
   const [gameDuration, setGameDuration] = useState(0);
@@ -70,13 +66,23 @@ export const GameDetailsForm: FC<GameDetails> = () => {
     {} as Record<string, string>
   );
 
+  useEffect(() => {
+    sessionStorage.setItem("GameDuration", JSON.stringify(gameDuration));
+    sessionStorage.setItem(
+      "NumberOfOpponents",
+      JSON.stringify(numberOfOpponents)
+    );
+    sessionStorage.setItem("TurnTimeLimit", JSON.stringify(turnTimeLimit));
+    sessionStorage.setItem("DifficultyLevel", JSON.stringify(selectedOption));
+  }, [gameDuration, numberOfOpponents, turnTimeLimit, selectedOption]);
+
   const onSubmit = () => {
-    const formValues: GameDetails = {
+    const formValues = [
       gameDuration,
       numberOfOpponents,
       turnTimeLimit,
       selectedOption,
-    };
+    ];
 
     try {
       gameDetailsFormSchema.parse(formValues);
@@ -89,8 +95,6 @@ export const GameDetailsForm: FC<GameDetails> = () => {
         setErrorMessages(messages);
       }
     }
-
-    console.log(formValues);
   };
 
   const clearForm = () => {
@@ -135,7 +139,7 @@ export const GameDetailsForm: FC<GameDetails> = () => {
           name="number of opponents"
           value={numberOfOpponents}
           min={1}
-          max={2}
+          max={1}
           onChange={(newValue) => {
             setNumberOfOpponents(newValue);
           }}
@@ -191,9 +195,11 @@ export const GameDetailsForm: FC<GameDetails> = () => {
         )}
 
         <div className="flex justify-start">
-          <Button variant={ButtonVariant.PRIMARY} onClick={onSubmit}>
-            Submit
-          </Button>
+          <Link href="/game">
+            <Button variant={ButtonVariant.PRIMARY} onClick={onSubmit}>
+              Submit
+            </Button>
+          </Link>
           <Button variant={ButtonVariant.SECONDARY} onClick={clearForm}>
             Clear form
           </Button>
