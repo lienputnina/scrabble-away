@@ -30,12 +30,20 @@ export const GameDetailsCard: FC = () => {
     });
   }, []);
 
+  // counter that starts from 0 and goes no higher than {gameDetails.gameDuration}
+  // Players don't see game details, the game is created based on them
+
   return (
-    <div>
-      <Title level={TitleLevel.FOUR}>Game details</Title>
+    <div className="rounded border-2 border-slate-900 p-3">
+      <Title
+        level={TitleLevel.TWO}
+        style={{ fontSize: "34px", lineHeight: "25px" }}
+      >
+        Game details
+      </Title>
       <div className="info-board">
-        <p>Game duration: {gameDetails.gameDuration}</p>
-        <p>Number of opponents:{gameDetails.numberOfOpponents}</p>
+        <p>Game duration: {gameDetails.gameDuration} minutes</p>
+        <p>Number of opponents: {gameDetails.numberOfOpponents}</p>
         <p>Turn time: {gameDetails.turnTimeLimit} minutes</p>
         <p>Difficulty: {gameDetails.selectedOption?.value}</p>
       </div>
