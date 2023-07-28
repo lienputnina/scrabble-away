@@ -11,7 +11,7 @@ import {
   TitleAlignment,
 } from "@liene-putnina/react-components-for-you";
 
-import { WithHeader } from "~/components/WithHeader";
+import { WithHeader } from "~/components/hoc/WithHeader";
 
 const Home: NextPage = () => {
   return (

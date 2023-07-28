@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 
-import { WithHeader } from "~/components/WithHeader";
+import { WithHeader } from "~/components/hoc/WithHeader";
 import { GameInfoSection } from "~/components/GameInfoSection";
 
 const Game: NextPage = () => {
