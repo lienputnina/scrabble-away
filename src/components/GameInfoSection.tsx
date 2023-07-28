@@ -1,17 +1,10 @@
-import { GameDetailsCard } from "~/components/GameDetailsCard";
 import { useEffect, type FC, useState } from "react";
 
-import {
-  Title,
-  TitleAlignment,
-  TitleLevel,
-} from "@liene-putnina/react-components-for-you";
-
+import type { GameDetails } from "./GameDetailsForm";
+import { GameDetailsCard } from "~/components/GameDetailsCard";
 import { PlayerCard } from "~/components/PlayerCard";
 import { TurnHistoryCard } from "~/components/TurnHistoryCard";
 
-import { useUser } from "@clerk/nextjs";
-import type { GameDetails } from "./GameDetailsForm";
 import type { Option } from "@liene-putnina/react-components-for-you";
 
 export const GameInfoSection: FC = () => {
@@ -39,8 +32,6 @@ export const GameInfoSection: FC = () => {
     });
   }, []);
 
-  const user = useUser();
-  // console.log(user.fullName);
   return (
     <div>
       <div>
@@ -52,26 +43,15 @@ export const GameInfoSection: FC = () => {
           playerOneScore={10}
           playerTwoScore={15}
         />
-        <div className="mt-4 flex h-full w-full flex-col rounded border-2 border-slate-900 p-3">
-          <Title
-            level={TitleLevel.TWO}
-            alignment={TitleAlignment.LEFT}
-            className="mx-1.5"
-            style={{ fontSize: "30px", lineHeight: "10px" }}
-          >
-            Turn history
-          </Title>
-          <TurnHistoryCard
-            playerName="Liene"
-            wordCount={5}
-            wordsPlayed={["OneWord", "TwoWord", "ThreeWord"]}
-          />
-          <TurnHistoryCard
-            playerName="AI"
-            wordCount={7}
-            wordsPlayed={["FourWord", "FiveWord", "SixWord"]}
-          />
-        </div>
+
+        <TurnHistoryCard
+          playerOneName="Liene"
+          playerTwoName="AI"
+          playerOneWordCount={5}
+          playerTwoWordCount={7}
+          playerOneWordsPlayed={["OneWord", "TwoWord", "ThreeWord"]}
+          playerTwoWordsPlayed={["TwoWord", "ThreeWord", "FourWord"]}
+        />
       </div>
     </div>
   );

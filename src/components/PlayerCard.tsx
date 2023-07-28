@@ -16,7 +16,7 @@ export const PlayerCard: FC<PlayerCardInfo> = ({
   turnTime,
 }) => {
   return (
-    <div className="flex w-full flex-col rounded border-2 border-slate-900 p-3">
+    <div className="flex w-full flex-col rounded border-2 border-slate-900 px-2 py-3 pb-3 pt-5">
       <Title
         level={TitleLevel.TWO}
         className="mx-1.5"
