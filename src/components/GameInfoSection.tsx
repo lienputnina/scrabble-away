@@ -37,20 +37,21 @@ export const GameInfoSection: FC = () => {
       <div>
         <GameDetailsCard />
         <PlayerCard
-          turnTime={gameDetails.turnTimeLimit}
-          playerOneName="Liene"
-          playerTwoName="AI"
-          playerOneScore={10}
-          playerTwoScore={15}
+          namePlayerOne="Liene"
+          namePlayerTwo="AI"
+          scorePlayerOne={10}
+          scorePlayerTwo={15}
+          gameTimePlayerOne={gameDetails.gameDuration}
+          gameTimePlayerTwo={gameDetails.gameDuration}
         />
 
         <TurnHistoryCard
-          playerOneName="Liene"
-          playerTwoName="AI"
-          playerOneWordCount={5}
-          playerTwoWordCount={7}
-          playerOneWordsPlayed={["OneWord", "TwoWord", "ThreeWord"]}
-          playerTwoWordsPlayed={["TwoWord", "ThreeWord", "FourWord"]}
+          namePlayerOne="Liene"
+          namePlayerTwo="AI"
+          wordCountPlayerOne={5}
+          wordCountPlayerTwo={7}
+          wordsPlayedPlayerOne={["OneWord", "TwoWord", "ThreeWord"]}
+          wordsPlayedPlayerTwo={["TwoWord", "ThreeWord", "FourWord"]}
         />
       </div>
     </div>

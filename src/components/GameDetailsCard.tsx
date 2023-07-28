@@ -39,7 +39,6 @@ export const GameDetailsCard: FC = () => {
         Game details
       </Title>
       <div className="info-board">
-        <p>Game duration: {gameDetails.gameDuration} minutes</p>
         <p>Number of opponents: {gameDetails.numberOfOpponents}</p>
         <p>Difficulty: {gameDetails.selectedOption?.value}</p>
       </div>

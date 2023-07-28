@@ -2,18 +2,20 @@ import { Title, TitleLevel } from "@liene-putnina/react-components-for-you";
 import type { FC } from "react";
 
 export interface PlayerCardInfo {
-  playerOneName: string | null | undefined;
-  playerTwoName: string | null | undefined;
-  playerOneScore?: number;
-  playerTwoScore?: number;
-  turnTime: number | undefined;
+  namePlayerOne: string | null | undefined;
+  namePlayerTwo: string | null | undefined;
+  scorePlayerOne: number;
+  scorePlayerTwo: number;
+  gameTimePlayerOne: number | undefined;
+  gameTimePlayerTwo: number | undefined;
 }
 export const PlayerCard: FC<PlayerCardInfo> = ({
-  playerOneName,
-  playerTwoName,
-  playerOneScore,
-  playerTwoScore,
-  turnTime,
+  namePlayerOne,
+  namePlayerTwo,
+  scorePlayerOne,
+  scorePlayerTwo,
+  gameTimePlayerOne,
+  gameTimePlayerTwo,
 }) => {
   return (
     <div className="flex w-full flex-col rounded border-2 border-slate-900 px-2 py-3 pb-3 pt-5">
@@ -26,14 +28,14 @@ export const PlayerCard: FC<PlayerCardInfo> = ({
       </Title>
       <div className="mx-2 flex-row">
         <div className="mb-3">
-          <p>Player name: {playerOneName}</p>
-          <p>Score: {playerOneScore}</p>
-          <p>Turn time: {turnTime} minutes</p>
+          <p>Player name: {namePlayerOne}</p>
+          <p>Score: {scorePlayerOne}</p>
+          <p>Time left: {gameTimePlayerOne} minutes</p>
         </div>
         <div>
-          <p>Player name: {playerTwoName}</p>
-          <p>Score: {playerTwoScore}</p>
-          <p>Turn time: {turnTime} minutes</p>
+          <p>Player name: {namePlayerTwo}</p>
+          <p>Score: {scorePlayerTwo}</p>
+          <p>Time left: {gameTimePlayerTwo} minutes</p>
         </div>
       </div>
     </div>

@@ -6,20 +6,20 @@ import {
 import type { FC } from "react";
 
 export interface TurnHistory {
-  playerOneName: string | null | undefined;
-  playerTwoName: string | null | undefined;
-  playerOneWordCount: number;
-  playerTwoWordCount: number;
-  playerOneWordsPlayed: string[];
-  playerTwoWordsPlayed: string[];
+  namePlayerOne: string | null | undefined;
+  namePlayerTwo: string | null | undefined;
+  wordCountPlayerOne: number;
+  wordCountPlayerTwo: number;
+  wordsPlayedPlayerOne: string[];
+  wordsPlayedPlayerTwo: string[];
 }
 export const TurnHistoryCard: FC<TurnHistory> = ({
-  playerOneName,
-  playerTwoName,
-  playerOneWordCount,
-  playerTwoWordCount,
-  playerOneWordsPlayed,
-  playerTwoWordsPlayed,
+  namePlayerOne,
+  namePlayerTwo,
+  wordCountPlayerOne,
+  wordCountPlayerTwo,
+  wordsPlayedPlayerOne,
+  wordsPlayedPlayerTwo,
 }) => {
   return (
     <div className="mt-4 flex h-full w-full flex-col rounded border-2 border-slate-900 px-2 py-3 pb-3 pt-5">
@@ -34,17 +34,17 @@ export const TurnHistoryCard: FC<TurnHistory> = ({
 
       <div className="mx-2">
         <div>
-          <p>{playerOneName}</p>
+          <p>{namePlayerOne}</p>
           <div>
-            <p>Words played: {playerOneWordCount}</p>
-            <p>{playerOneWordsPlayed}</p>
+            <p>Words played: {wordCountPlayerOne}</p>
+            <p>{wordsPlayedPlayerOne}</p>
           </div>
         </div>
         <div>
-          <p>{playerTwoName}</p>
+          <p>{namePlayerTwo}</p>
           <div>
-            <p>Words played: {playerTwoWordCount}</p>
-            <p>{playerTwoWordsPlayed}</p>
+            <p>Words played: {wordCountPlayerTwo}</p>
+            <p>{wordsPlayedPlayerTwo}</p>
           </div>
         </div>
       </div>
