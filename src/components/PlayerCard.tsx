@@ -1,23 +1,41 @@
+import { Title, TitleLevel } from "@liene-putnina/react-components-for-you";
 import type { FC } from "react";
 
 export interface PlayerCardInfo {
-  playerName: string | null | undefined;
-  score: number;
-  timeLeft: number;
-  turnTime: number;
+  playerOneName: string | null | undefined;
+  playerTwoName: string | null | undefined;
+  playerOneScore?: number;
+  playerTwoScore?: number;
+  turnTime: number | undefined;
 }
 export const PlayerCard: FC<PlayerCardInfo> = ({
-  playerName,
-  score,
-  timeLeft,
+  playerOneName,
+  playerTwoName,
+  playerOneScore,
+  playerTwoScore,
   turnTime,
 }) => {
   return (
-    <div className="m-2 flex flex-col rounded border-2 border-slate-900 p-3">
-      <p>{playerName}</p>
-      <p>Score: {score}</p>
-      <p>Time left: {timeLeft} minutes</p>
-      <p>Turn time: {turnTime} minutes</p>
+    <div className="flex w-full flex-col rounded border-2 border-slate-900 p-3">
+      <Title
+        level={TitleLevel.TWO}
+        className="mx-1.5"
+        style={{ fontSize: "30px", lineHeight: "10px" }}
+      >
+        Players
+      </Title>
+      <div className="mx-2 flex-row">
+        <div className="mb-3">
+          <p>Player name: {playerOneName}</p>
+          <p>Score: {playerOneScore}</p>
+          <p>Turn time: {turnTime} minutes</p>
+        </div>
+        <div>
+          <p>Player name: {playerTwoName}</p>
+          <p>Score: {playerTwoScore}</p>
+          <p>Turn time: {turnTime} minutes</p>
+        </div>
+      </div>
     </div>
   );
 };

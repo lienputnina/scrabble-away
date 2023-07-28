@@ -34,7 +34,7 @@ export const GameDetailsCard: FC = () => {
   // Players don't see game details, the game is created based on them
 
   return (
-    <div className="rounded border-2 border-slate-900 p-3">
+    <div className="mb-5 rounded border-2 border-slate-900 p-3">
       <Title
         level={TitleLevel.TWO}
         style={{ fontSize: "34px", lineHeight: "25px" }}
