@@ -6,8 +6,8 @@ export interface PlayerCardInfo {
   namePlayerTwo: string | null | undefined;
   scorePlayerOne: number;
   scorePlayerTwo: number;
-  gameTimePlayerOne: number | undefined;
-  gameTimePlayerTwo: number | undefined;
+  gameTimePlayerOne: number | string;
+  gameTimePlayerTwo: number | string;
 }
 export const PlayerCard: FC<PlayerCardInfo> = ({
   namePlayerOne,

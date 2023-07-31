@@ -10,10 +10,17 @@ import type { Option } from "@liene-putnina/react-components-for-you";
 export const GameInfoSection: FC = () => {
   const [gameDetails, setGameDetails] = useState<GameDetails>({});
 
-  useEffect(() => {
+  const initialGameDuration = gameDetails.gameDuration || 0;
+  const initialCountdown = initialGameDuration * 60;
+
+  const [countdownPlayerOne, setCountdownPlayerOne] =
+    useState<number>(initialCountdown);
+  const [countdownPlayerTwo, setCountdownPlayerTwo] =
+    useState<number>(initialCountdown);
+
+  const getGameDetails = () => {
     const storedGameDuration = sessionStorage.getItem("GameDuration");
     const storedNumberOfOpponents = sessionStorage.getItem("NumberOfOpponents");
-    const storedTurnTimeLimit = sessionStorage.getItem("TurnTimeLimit");
     const storedDifficultyLevel = sessionStorage.getItem("DifficultyLevel");
 
     setGameDetails({
@@ -23,14 +30,37 @@ export const GameInfoSection: FC = () => {
       numberOfOpponents: storedNumberOfOpponents
         ? Number(JSON.parse(storedNumberOfOpponents))
         : undefined,
-      turnTimeLimit: storedTurnTimeLimit
-        ? Number(JSON.parse(storedTurnTimeLimit))
-        : undefined,
       selectedOption: storedDifficultyLevel
         ? (JSON.parse(storedDifficultyLevel) as Option)
         : undefined,
     });
-  }, []);
+  };
+
+  const formatTime = (timeInSeconds: number): string => {
+    const minutes = Math.floor(timeInSeconds / 60);
+    const seconds = timeInSeconds % 60;
+    return `${minutes.toString().padStart(2, "0")}:${seconds
+      .toString()
+      .padStart(2, "0")}`;
+  };
+
+  useEffect(() => {
+    getGameDetails();
+
+    setCountdownPlayerOne(initialCountdown);
+    setCountdownPlayerTwo(initialCountdown);
+
+    const interval = setInterval(() => {
+      setCountdownPlayerOne((prevCountdown) =>
+        prevCountdown > 0 ? prevCountdown - 1 : 0
+      );
+      setCountdownPlayerTwo((prevCountdown) =>
+        prevCountdown > 0 ? prevCountdown - 1 : 0
+      );
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [initialCountdown]);
 
   return (
     <div>
@@ -41,8 +71,8 @@ export const GameInfoSection: FC = () => {
           namePlayerTwo="AI"
           scorePlayerOne={10}
           scorePlayerTwo={15}
-          gameTimePlayerOne={gameDetails.gameDuration}
-          gameTimePlayerTwo={gameDetails.gameDuration}
+          gameTimePlayerOne={formatTime(countdownPlayerOne)}
+          gameTimePlayerTwo={formatTime(countdownPlayerTwo)}
         />
 
         <TurnHistoryCard
