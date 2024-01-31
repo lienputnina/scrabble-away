@@ -1,5 +1,5 @@
 import { useState, type FC, useEffect } from "react";
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 import {
   Button,
@@ -23,18 +23,15 @@ export interface GameDetails {
 }
 
 const SelectedOptionType = z
-  .array(
-    z.object({
-      id: z.string(),
-      value: z.string(),
-    })
-  )
-  .transform((value) => (value.length === 0 ? undefined : value))
+  .object({
+    id: z.string(),
+    value: z.string(),
+  })
   .optional()
-  .refine((value) => value !== undefined && value.length > 0, {
+  .refine((value) => value !== undefined, {
     message: "Please, choose the game difficulty level",
     path: ["selectedOption"],
-  }) as z.ZodType<Option[]>;
+  });
 
 const gameDetailsFormSchema = z.object({
   gameDuration: z
@@ -58,6 +55,8 @@ export const GameDetailsForm: FC<GameDetails> = () => {
     { id: "level-hard", value: "Hard" },
   ];
 
+  const router = useRouter();
+
   const [gameDuration, setGameDuration] = useState(0);
   const [numberOfOpponents, setNumberOfOpponents] = useState(0);
   const [turnTimeLimit, setTurnTimeLimit] = useState(0);
@@ -76,16 +75,17 @@ export const GameDetailsForm: FC<GameDetails> = () => {
     sessionStorage.setItem("DifficultyLevel", JSON.stringify(selectedOption));
   }, [gameDuration, numberOfOpponents, turnTimeLimit, selectedOption]);
 
-  const onSubmit = () => {
-    const formValues = [
+  const handleSubmit = async () => {
+    const formValues = {
       gameDuration,
       numberOfOpponents,
       turnTimeLimit,
       selectedOption,
-    ];
+    };
 
     try {
       gameDetailsFormSchema.parse(formValues);
+      await router.push("/game");
     } catch (error) {
       if (error instanceof z.ZodError) {
         const messages: Record<string, string> = {};
@@ -93,8 +93,20 @@ export const GameDetailsForm: FC<GameDetails> = () => {
           messages[err.path[0]!] = err.message;
         });
         setErrorMessages(messages);
+      } else {
+        console.error("Non-Zod Error during form submission:", error);
       }
     }
+  };
+
+  const handleButtonClick = () => {
+    handleSubmit()
+      .then(() => {
+        console.log("Form submitted successfully!");
+      })
+      .catch((error) => {
+        console.error("Form submission error:", error);
+      });
   };
 
   const clearForm = () => {
@@ -195,11 +207,9 @@ export const GameDetailsForm: FC<GameDetails> = () => {
         )}
 
         <div className="flex justify-start">
-          <Link href="/game">
-            <Button variant={ButtonVariant.PRIMARY} onClick={onSubmit}>
-              Submit
-            </Button>
-          </Link>
+          <Button variant={ButtonVariant.PRIMARY} onClick={handleButtonClick}>
+            Submit
+          </Button>
           <Button variant={ButtonVariant.SECONDARY} onClick={clearForm}>
             Clear form
           </Button>
