@@ -100,13 +100,7 @@ export const GameDetailsForm: FC<GameDetails> = () => {
   };
 
   const handleButtonClick = () => {
-    handleSubmit()
-      .then(() => {
-        console.log("Form submitted successfully!");
-      })
-      .catch((error) => {
-        console.error("Form submission error:", error);
-      });
+    void handleSubmit();
   };
 
   const clearForm = () => {
